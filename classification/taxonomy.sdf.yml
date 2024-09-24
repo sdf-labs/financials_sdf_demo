@@ -1,0 +1,32 @@
+classifier:
+  name: PII
+  labels: 
+    - name: name
+    - name: email
+    - name: phone
+    - name: address
+    - name: hashed
+---
+table:
+  name: raw_customers
+  columns:
+    - name: name
+      description: (SENSITIVE) Customer full name
+      classifiers:
+        - PII.name
+      tests:
+        - expect: not_null()
+    - name: email
+      description: (SENSITIVE) Customer email
+      classifiers:
+        - PII.email
+    - name: phone
+      description: (SENSITIVE) Customer phone number
+      classifiers:
+        - PII.phone
+---
+function: 
+  name: md5
+  reclassify:
+    - from: PII.*
+      to: PII.hashed

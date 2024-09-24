@@ -1,0 +1,36 @@
+table:
+  name: financials.public_operations.fct_daily_orders
+  dialect: snowflake
+  materialization: transient-table
+  purpose: model
+  dependencies:
+  - financials.public_operations.FCT_ORDERS
+  columns:
+  - name: ORDERPLACEDDATE
+    datatype: date
+    lineage:
+      modify:
+      - financials.public_operations.FCT_ORDERS.ORDERPLACEDTIMESTAMP
+  - name: NUMBEROFORDERSPLACED
+    datatype: varchar
+    lineage:
+      copy:
+      - financials.public_operations.FCT_ORDERS.ORDERSTATUS
+  - name: NUMBEROFORDERSSHIPPED
+    datatype: decimal(38, 0)
+    lineage:
+      modify:
+      - financials.public_operations.FCT_ORDERS.ORDERID
+      - financials.public_operations.FCT_ORDERS.ORDERSTATUS
+  - name: NUMBEROFORDERSRETURNED
+    datatype: decimal(38, 0)
+    lineage:
+      modify:
+      - financials.public_operations.FCT_ORDERS.ORDERID
+      - financials.public_operations.FCT_ORDERS.ORDERSTATUS
+  lineage:
+    scan:
+    - financials.public_operations.FCT_ORDERS.ORDERPLACEDTIMESTAMP
+    - financials.public_operations.FCT_ORDERS.ORDERSTATUS
+  source-locations:
+  - path: models/financials/public_operations/fct_daily_orders.sql

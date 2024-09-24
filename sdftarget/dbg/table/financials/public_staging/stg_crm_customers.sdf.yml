@@ -1,0 +1,71 @@
+table:
+  name: financials.public_staging.stg_crm_customers
+  dialect: snowflake
+  materialization: transient-table
+  purpose: model
+  dependencies:
+  - FINANCIALS.PUBLIC.RAW_CUSTOMERS
+  columns:
+  - name: CUSTOMERID
+    datatype: decimal(38, 0)
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.CUSTOMERID
+  - name: FULLNAME
+    datatype: varchar
+    classifiers:
+    - PII.name
+    lineage:
+      modify:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.NAME
+  - name: FIRSTNAME2
+    datatype: varchar
+    classifiers:
+    - PII.name
+    lineage:
+      modify:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.NAME
+  - name: LASTNAMEASDF
+    datatype: varchar
+    classifiers:
+    - PII.name
+    lineage:
+      modify:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.NAME
+  - name: PHONENUMBER
+    datatype: varchar
+    classifiers:
+    - PII.phone
+    lineage:
+      modify:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.PHONE
+  - name: EMAILADDRESS
+    description: (SENSITIVE) Customer email
+    datatype: varchar
+    classifiers:
+    - PII.email
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.EMAIL
+  - name: ADDRESS
+    datatype: varchar
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.ADDRESS
+  - name: REGION
+    datatype: varchar
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.REGION
+  - name: POSTALZIP
+    datatype: varchar
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.POSTALZIP
+  - name: COUNTRY
+    datatype: varchar
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC.RAW_CUSTOMERS.COUNTRY
+  source-locations:
+  - path: models/financials/public_staging/stg_crm_customers.sql

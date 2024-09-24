@@ -1,0 +1,15 @@
+table:
+  name: FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERITEMS_2
+  dialect: snowflake
+  materialization: table
+  purpose: model
+  origin: remote
+  columns:
+  - name: ORDERITEMSID
+    datatype: decimal(38, 0)
+  - name: ORDERID
+    datatype: decimal(38, 0)
+  - name: PRODUCTID
+    datatype: decimal(38, 0)
+  source-locations:
+  - path: workspace.sdf.yml

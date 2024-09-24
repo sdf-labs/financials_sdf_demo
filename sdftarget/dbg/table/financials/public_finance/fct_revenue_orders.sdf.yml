@@ -1,0 +1,45 @@
+table:
+  name: financials.public_finance.fct_revenue_orders
+  dialect: snowflake
+  materialization: transient-table
+  purpose: model
+  dependencies:
+  - FINANCIALS.PUBLIC_STAGING.INT_ORDERS_ITEMS_PRODUCTS_JOINED
+  - FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERS
+  columns:
+  - name: ORDERID
+    datatype: decimal(38, 0)
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERS.ORDERID
+  - name: ORDERPLACEDTIMESTAMP
+    datatype: date
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERS.ORDERPLACEDTIMESTAMP
+  - name: UPDATEDAT
+    datatype: timestamp
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERS.UPDATEDAT
+  - name: ORDERSTATUS
+    datatype: varchar
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERS.ORDERSTATUS
+  - name: SALESPERSON
+    datatype: varchar
+    lineage:
+      copy:
+      - FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERS.SALESPERSON
+  - name: REVENUE
+    datatype: decimal(38, 0)
+    lineage:
+      modify:
+      - FINANCIALS.PUBLIC_STAGING.INT_ORDERS_ITEMS_PRODUCTS_JOINED.PRICE
+  lineage:
+    scan:
+    - FINANCIALS.PUBLIC_STAGING.INT_ORDERS_ITEMS_PRODUCTS_JOINED.ORDERID
+    - FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERS.ORDERID
+  source-locations:
+  - path: models/financials/public_finance/fct_revenue_orders.sql

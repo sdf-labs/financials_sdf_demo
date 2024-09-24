@@ -1,0 +1,74 @@
+table:
+  name: financials.public.small_customers
+  dialect: snowflake
+  materialization: transient-table
+  purpose: model
+  dependencies:
+  - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS
+  columns:
+  - name: CUSTOMERID
+    datatype: decimal(38, 0)
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.CUSTOMERID
+  - name: FULLNAME
+    datatype: varchar
+    classifiers:
+    - PII.name
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.FULLNAME
+  - name: FIRSTNAME2
+    datatype: varchar
+    classifiers:
+    - PII.name
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.FIRSTNAME2
+  - name: LASTNAMEASDF
+    datatype: varchar
+    classifiers:
+    - PII.name
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.LASTNAMEASDF
+  - name: PHONENUMBER
+    datatype: varchar
+    classifiers:
+    - PII.phone
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.PHONENUMBER
+  - name: EMAILADDRESS
+    description: (SENSITIVE) Customer email
+    datatype: varchar
+    classifiers:
+    - PII.email
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.EMAILADDRESS
+  - name: ADDRESS
+    datatype: varchar
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.ADDRESS
+  - name: REGION
+    datatype: varchar
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.REGION
+  - name: POSTALZIP
+    datatype: varchar
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.POSTALZIP
+  - name: COUNTRY
+    datatype: varchar
+    lineage:
+      copy:
+      - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.COUNTRY
+  lineage:
+    scan:
+    - financials.PUBLIC_STAGING.STG_CRM_CUSTOMERS.FULLNAME
+  source-locations:
+  - path: models/financials/public/small_customers.sql
