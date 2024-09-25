@@ -5,7 +5,7 @@ select
   FULLNAME,
   LASTNAMEASDF,
   PHONENUMBER,
-  EMAILADDRESS,
+  EMAILADDRESS, 
   ADDRESS,
   POSTALZIP
 from public_staging.stg_crm_customers
