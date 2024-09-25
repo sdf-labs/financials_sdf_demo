@@ -8,7 +8,7 @@ classifier:
     - name: hashed
 ---
 table:
-  name: raw_customers
+  name: '"RAW_CUSTOMERS"'
   columns:
     - name: name
       description: (SENSITIVE) Customer full name
