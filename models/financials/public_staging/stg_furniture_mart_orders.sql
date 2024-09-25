@@ -1,7 +1,7 @@
 
 
 select
-  ord.OrderId,
+  CAST(ord.OrderId as varchar) as OrderId,
   ord.CustomerId,
   ord.SalesPerson as SalesPerson,
   cast(ord.OrderPlacedTimestamp as date) as OrderPlacedTimestamp,

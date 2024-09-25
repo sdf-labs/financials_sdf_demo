@@ -5,7 +5,7 @@ select
   ord.OrderId,
   ord.CustomerId,
   ord.OrderStatus,
-  ord.OrderPlacedTimestamp,
+  ord.OrderPlacedTimestamp + 100 as OrderPlacedTimestamp,
   7 as Ordr
 from financials.public_staging.stg_furniture_mart_orders as ord
 -- uncomment the join criteria below to implement a time range join. 
