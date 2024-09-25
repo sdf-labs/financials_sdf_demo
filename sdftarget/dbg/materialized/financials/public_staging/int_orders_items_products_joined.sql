@@ -1,7 +1,0 @@
-
-
-create or replace transient table FINANCIALS.PUBLIC_STAGING.INT_ORDERS_ITEMS_PRODUCTS_JOINED as (select
-  itm.OrderId,
-  1000 as Price
-from FINANCIALS.PUBLIC_STAGING.STG_FURNITURE_MART_ORDERITEMS_2 as itm);
-
