@@ -11,7 +11,8 @@ from public_staging.stg_crm_customers
 )
 
 select
-  *
+  *,
+  42 as answer
 from stg_crm_customers as cus
 where
   cus.FullName not in {{ small_customers }}
