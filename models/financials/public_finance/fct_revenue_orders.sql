@@ -10,5 +10,5 @@ select
   ord.SalesPerson,
   rev.Revenue
 from orders_revenue as rev
-join financials.public_staging.stg_furniture_mart_orders as ord
+join "financials"."public_staging".stg_furniture_mart_orders as ord
   on rev.OrderId = ord.OrderId

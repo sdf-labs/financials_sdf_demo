@@ -3,7 +3,7 @@
 select
   pro.OrderId,
   sum(pro.Price) as Revenue
-from financials.public_staging.int_orders_items_products_joined as pro
+from "financials"."public_staging"."int_orders_items_products_joined" as pro
 group by 1
 
 {% endmacro %}
