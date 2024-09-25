@@ -1,1 +1,1 @@
-select 42 + 42;
+select 42;
