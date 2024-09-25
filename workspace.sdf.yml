@@ -1,20 +1,22 @@
 workspace:
-  edition: '1.3'
+  edition: "1.3"
   name: finances_v2
+  description: >
+    a demo workspace
   includes:
-  - path: functions
-  - path: models
-    index: catalog-schema-table-name
-  - path: macros
-  - path: checks 
-    type: check
-    defaults:
-      severity: warning
-      dialect: trino
-  - path: classification 
-    type: metadata
-  - path: tests
-  defaults: 
+    - path: functions
+    - path: models
+      index: catalog-schema-table-name
+    - path: macros
+    - path: checks
+      type: check
+      defaults:
+        severity: warning
+        dialect: trino
+    - path: classification
+      type: metadata
+    - path: tests
+  defaults:
     dialect: snowflake
     catalog: financials
     schema: public
@@ -24,7 +26,7 @@ workspace:
   integrations:
     - provider: snowflake
       type: database
-      sources: 
+      sources:
         - pattern: financials.*.*
       targets:
         - pattern: financials.*.*
@@ -37,7 +39,7 @@ environment:
   integrations:
     - provider: snowflake
       type: database
-      sources: 
+      sources:
         - pattern: financials.*.*
       targets:
         - pattern: "*.*.*"
