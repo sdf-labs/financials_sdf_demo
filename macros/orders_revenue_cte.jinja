@@ -2,8 +2,8 @@
 
 select
   pro.OrderId,
-  sum(pro.Price) as Revenue
-from "financials"."public_staging"."int_orders_items_products_joined" as pro
+  sum(pro.Price) * 20 as Revenue
+from financials.public_staging.int_orders_items_products_joined as pro
 group by 1
 
 {% endmacro %}
