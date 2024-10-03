@@ -7,7 +7,7 @@ WITH crm_cus AS (
   
 select
   *
-from "financials"."public_staging"."stg_crm_customers"
+from public_staging.stg_crm_customers
 )
 
 select

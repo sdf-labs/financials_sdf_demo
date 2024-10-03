@@ -14,5 +14,5 @@ select
   
   count(case when OrderStatus = 'returned' then OrderId end) as NumberOfOrdersreturned
   
-from "financials"."public_operations"."fct_orders"
+from fct_orders
 group by 1,2
