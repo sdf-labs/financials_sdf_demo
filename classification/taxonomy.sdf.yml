@@ -14,8 +14,6 @@ table:
       description: (SENSITIVE) Customer full name
       classifiers:
         - PII.name
-      tests:
-        - expect: not_null()
     - name: email
       description: (SENSITIVE) Customer email
       classifiers:

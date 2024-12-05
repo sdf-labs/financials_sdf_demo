@@ -1,0 +1,11 @@
+table:
+  name: fct_daily_orders
+  # columns:
+  #   - name: numberofordersshipped
+  #     tests:
+  #       - expect: not_null()
+  #       - expect: minimum(0)
+  #   - name: numberofordersreturned
+  #     tests:
+  #       - expect: not_null()
+  #       - expect: minimum(0)

@@ -1,5 +1,3 @@
-
-
 select
   ord.OrderId,
   ord.CustomerId,

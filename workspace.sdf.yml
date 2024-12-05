@@ -14,12 +14,12 @@ workspace:
   - path: classification 
     type: metadata
   - path: tests
+  - path: seeds
   defaults: 
     dialect: snowflake
     catalog: financials
     schema: public
     preprocessor: all
-    environment: dbg
     materialization: transient-table
   integrations:
     - provider: snowflake
@@ -31,14 +31,3 @@ workspace:
   dependencies:
     - name: workspace_evaluator
       git: https://github.com/sdf-labs/workspace-evaluator/workspace-evaluator.git
----
-environment:
-  name: dev
-  integrations:
-    - provider: snowflake
-      type: database
-      sources: 
-        - pattern: financials.*.*
-      targets:
-        - pattern: "*.*.*"
-          rename-as: elias_sandbox.public.${1}__${2}__${3}
