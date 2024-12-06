@@ -14,7 +14,7 @@ workspace:
   - path: classification 
     type: metadata
   - path: tests
-  - path: seeds
+  # - path: seeds
   defaults: 
     dialect: snowflake
     catalog: financials
