@@ -31,3 +31,14 @@ workspace:
   dependencies:
     - name: workspace_evaluator
       git: https://github.com/sdf-labs/workspace-evaluator/workspace-evaluator.git
+---
+environment:
+  name: dev
+  integrations:
+    - provider: snowflake
+      type: database
+      sources: 
+        - pattern: financials.*.*
+      targets:
+        - pattern: "*.*.*"
+          rename-as: ${1}.${2}_{{ env_var('USER') }}.${3}
