@@ -15,4 +15,4 @@ select
   *
 from crm_cus 
 where
-  FullName not in {{ small_customers }}
+  FullName not in {{ big_customers }}
