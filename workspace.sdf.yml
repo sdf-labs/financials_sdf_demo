@@ -19,7 +19,7 @@ workspace:
     dialect: snowflake
     catalog: financials
     schema: public
-    preprocessor: all
+    preprocessor: jinja
     materialization: transient-table
   integrations:
     - provider: snowflake

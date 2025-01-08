@@ -1,9 +1,9 @@
 {% macro orders_revenue_cte() %}
 
 select
-  pro.OrderId,
-  sum(pro.Price) as Revenue
-from "financials"."public_staging"."int_orders_items_products_joined" as pro
+  OrderId,
+  sum(Price) as Revenue
+from financials.int.orders_items_products_joined
 group by 1
 
 {% endmacro %}

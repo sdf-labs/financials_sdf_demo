@@ -1,5 +1,6 @@
 table:
-  name: fct_daily_orders
+  name: daily_orders
+  materialization: view
   # columns:
   #   - name: numberofordersshipped
   #     tests:

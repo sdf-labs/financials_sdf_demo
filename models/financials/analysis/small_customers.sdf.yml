@@ -1,0 +1,8 @@
+table:  
+  name: small_customers
+  description: >
+    This model aggregates the number of orders for the hardcoded list of customers with less than 10 orders.
+  materialization: incremental-table
+  incremental-options: 
+    strategy: merge
+    unique-key: customer_id
