@@ -5,4 +5,4 @@ table:
   materialization: incremental-table
   incremental-options: 
     strategy: merge
-    unique-key: customer_id
+    unique-key: CustomerId

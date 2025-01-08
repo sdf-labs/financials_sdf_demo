@@ -4,7 +4,7 @@ with orders_revenue as(
 ) 
 select
   ord.OrderId,
-  ord.OrderPlacedTimestamp,
+  ord.OrderPlacedDate,
   ord.UpdatedAt,
   ord.OrderStatus,
   ord.SalesPerson,
