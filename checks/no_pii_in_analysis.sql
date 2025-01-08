@@ -3,5 +3,6 @@ SELECT
 FROM  
    sdf.information_schema.columns
 WHERE
-   CONTAINS_ARRAY_VARCHAR(classifiers, 'PII')
-   and schema_name = 'analysis';
+   (NOT CONTAINS_ARRAY_VARCHAR(classifiers, 'PII.hashed') 
+   AND CONTAINS_ARRAY_VARCHAR(classifiers, 'PII'))
+   AND schema_name = 'ANALYSIS'
