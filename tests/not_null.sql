@@ -1,5 +1,5 @@
 select 
   numberofordersshipped 
-from public_operations.fct_daily_orders
+from fct.daily_orders
 where 
   numberofordersshipped is null

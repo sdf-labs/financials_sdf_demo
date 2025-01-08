@@ -1,5 +1,5 @@
 select 
-  OrderQuantity 
-from public_operations.fct_orders
+  OrderQuantity
+from fct.orders
 where 
   OrderQuantity < 0
