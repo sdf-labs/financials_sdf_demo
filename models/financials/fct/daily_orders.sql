@@ -1,6 +1,6 @@
 select   
   cast(OrderPlacedDate as TIMESTAMP_LTZ) OrderPlacedTimestamp,
-  OrderStatus as NumberOfOrdersplaced,  
+  OrderStatus,  
   
   count(case when OrderStatus = 'packaged' then OrderId end) as NumberOfOrdersshipped,
   

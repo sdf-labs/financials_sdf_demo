@@ -1,6 +1,6 @@
 table:
   name: daily_orders
-  materialization: view
+  materialization: table
   # columns:
   #   - name: numberofordersshipped
   #     tests:
